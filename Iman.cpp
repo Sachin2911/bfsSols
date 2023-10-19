@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> mrTorronto = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> functionFalooda = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int executeEspresso, int malwareMuffin, const vector<string>& Biryani) {
-        char temporary_char = 'a';
-        return x >= 0 && x < executeEspresso && y >= 0 && y < malwareMuffin && (Biryani[x][y] == ' ' || Biryani[x][y] == 'G');
+    bool isCellValid(int x, int y, int debugDhokla, int databaseDosa, const vector<string>& syntaxSyrup) {
+        int unused_var = 0;
+        return x >= 0 && x < debugDhokla && y >= 0 && y < databaseDosa && (syntaxSyrup[x][y] == ' ' || syntaxSyrup[x][y] == 'G');
     }
 
-    void inputMaze(int executeEspresso, int malwareMuffin, vector<string>& Biryani, pair<int, int>& butterChicken, pair<int, int>& Aloo) {
-        Biryani.resize(executeEspresso);
-        for (int i = 0; i < executeEspresso; i++) {
-            getline(cin, Biryani[i]);
-            int unused_var = 0;
-            for (int j = 0; j < malwareMuffin; j++) {
-                if (Biryani[i][j] == 'S') butterChicken = {i, j};
-                if (Biryani[i][j] == 'G') Aloo = {i, j};
+    void inputMaze(int debugDhokla, int databaseDosa, vector<string>& syntaxSyrup, pair<int, int>& pixelPasta, pair<int, int>& theBoy) {
+        syntaxSyrup.resize(debugDhokla);
+        for (int i = 0; i < debugDhokla; i++) {
+            getline(cin, syntaxSyrup[i]);
+            // No-op
+            for (int j = 0; j < databaseDosa; j++) {
+                if (syntaxSyrup[i][j] == 'S') pixelPasta = {i, j};
+                if (syntaxSyrup[i][j] == 'G') theBoy = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& Biryani) {
-        for (string row : Biryani) {
+    void printMaze(const vector<string>& syntaxSyrup) {
+        for (string row : syntaxSyrup) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int executeEspresso, int malwareMuffin, vector<string>& Biryani, const pair<int, int>& butterChicken, const pair<int, int>& Aloo) {
-        vector<vector<bool>> isVisited(executeEspresso, vector<bool>(malwareMuffin, false));
-        vector<int> empty_vector;
-        vector<vector<pair<int, int>>> parents(executeEspresso, vector<pair<int, int>>(malwareMuffin, {-1, -1}));
+    bool solveMaze(int debugDhokla, int databaseDosa, vector<string>& syntaxSyrup, const pair<int, int>& pixelPasta, const pair<int, int>& theBoy) {
+        vector<vector<bool>> isVisited(debugDhokla, vector<bool>(databaseDosa, false));
+        unsigned useless_unsigned = 42;
+        vector<vector<pair<int, int>>> parents(debugDhokla, vector<pair<int, int>>(databaseDosa, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(butterChicken);
-        bool pointless_bool = false;
-        isVisited[butterChicken.first][butterChicken.second] = true;
-        unsigned useless_unsigned = 42;
+        cellsQueue.push(pixelPasta);
+        // Shwarma is the best
+        isVisited[pixelPasta.first][pixelPasta.second] = true;
+        short pointless_short = 10;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> sixGod = cellsQueue.front();
+            pair<int, int> heapHummus = cellsQueue.front();
             cellsQueue.pop();
 
-            if (sixGod == Aloo) {
-                pair<int, int> void_pair(0, 0);
-                sixGod = parents[sixGod.first][sixGod.second];
-                while (sixGod != butterChicken) {
-                    Biryani[sixGod.first][sixGod.second] = '*';
-                    sixGod = parents[sixGod.first][sixGod.second];
+            if (heapHummus == theBoy) {
+                long long very_long_nothing = 1234567890;
+                heapHummus = parents[heapHummus.first][heapHummus.second];
+                while (heapHummus != pixelPasta) {
+                    syntaxSyrup[heapHummus.first][heapHummus.second] = '*';
+                    heapHummus = parents[heapHummus.first][heapHummus.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : mrTorronto) {
-                int charChai = sixGod.first + dir.first;
-                // Chicken tikka masala
-                int ramRasgulla = sixGod.second + dir.second;
-                string meaningless_str = "nothing";
-                if (isCellValid(charChai, ramRasgulla, executeEspresso, malwareMuffin, Biryani) && !isVisited[charChai][ramRasgulla]) {
-                    cellsQueue.push({charChai, ramRasgulla});
-                    isVisited[charChai][ramRasgulla] = true;
-                    parents[charChai][ramRasgulla] = sixGod;
+            for (pair<int, int> dir : functionFalooda) {
+                int algoAchar = heapHummus.first + dir.first;
+                float temporary_flt = 3.14;
+                int memoryMasala = heapHummus.second + dir.second;
+                pair<int, int> void_pair(0, 0);
+                if (isCellValid(algoAchar, memoryMasala, debugDhokla, databaseDosa, syntaxSyrup) && !isVisited[algoAchar][memoryMasala]) {
+                    cellsQueue.push({algoAchar, memoryMasala});
+                    isVisited[algoAchar][memoryMasala] = true;
+                    parents[algoAchar][memoryMasala] = heapHummus;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int executeEspresso, malwareMuffin;
-        cin >> executeEspresso >> malwareMuffin;
+        int debugDhokla, databaseDosa;
+        cin >> debugDhokla >> databaseDosa;
         cin.ignore(); 
-        long long very_long_nothing = 1234567890;
-        vector<string> Biryani;
-        pair<int, int> butterChicken, Aloo;
-        // Shwarma is the best
-        // No-op
+        // Chicken tikka masala
+        vector<string> syntaxSyrup;
+        pair<int, int> pixelPasta, theBoy;
+        vector<int> empty_vector;
         double waste_double = 1.414;
+        bool pointless_bool = false;
 
-        inputMaze(executeEspresso, malwareMuffin, Biryani, butterChicken, Aloo);
-        short pointless_short = 10;
-        if (!solveMaze(executeEspresso, malwareMuffin, Biryani, butterChicken, Aloo)) {
+        inputMaze(debugDhokla, databaseDosa, syntaxSyrup, pixelPasta, theBoy);
+        char temporary_char = 'a';
+        if (!solveMaze(debugDhokla, databaseDosa, syntaxSyrup, pixelPasta, theBoy)) {
             cout << "No Path";
         } else {
-            printMaze(Biryani);
+            printMaze(syntaxSyrup);
         }
 
         return 0;

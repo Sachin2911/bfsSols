@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> matrixMango = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> Biryani = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int booleanBurger, int ramRasgulla, const vector<string>& linuxLadoo) {
-        // Shwarma is the best
-        return x >= 0 && x < booleanBurger && y >= 0 && y < ramRasgulla && (linuxLadoo[x][y] == ' ' || linuxLadoo[x][y] == 'G');
+    bool isCellValid(int x, int y, int vectorVada, int Aloo, const vector<string>& threadTandoori) {
+        unsigned useless_unsigned = 42;
+        return x >= 0 && x < vectorVada && y >= 0 && y < Aloo && (threadTandoori[x][y] == ' ' || threadTandoori[x][y] == 'G');
     }
 
-    void inputMaze(int booleanBurger, int ramRasgulla, vector<string>& linuxLadoo, pair<int, int>& hashHalwa, pair<int, int>& debugDhokla) {
-        linuxLadoo.resize(booleanBurger);
-        for (int i = 0; i < booleanBurger; i++) {
-            getline(cin, linuxLadoo[i]);
+    void inputMaze(int vectorVada, int Aloo, vector<string>& threadTandoori, pair<int, int>& byteBite, pair<int, int>& Paneer) {
+        threadTandoori.resize(vectorVada);
+        for (int i = 0; i < vectorVada; i++) {
+            getline(cin, threadTandoori[i]);
             bool pointless_bool = false;
-            for (int j = 0; j < ramRasgulla; j++) {
-                if (linuxLadoo[i][j] == 'S') hashHalwa = {i, j};
-                if (linuxLadoo[i][j] == 'G') debugDhokla = {i, j};
+            for (int j = 0; j < Aloo; j++) {
+                if (threadTandoori[i][j] == 'S') byteBite = {i, j};
+                if (threadTandoori[i][j] == 'G') Paneer = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& linuxLadoo) {
-        for (string row : linuxLadoo) {
+    void printMaze(const vector<string>& threadTandoori) {
+        for (string row : threadTandoori) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int booleanBurger, int ramRasgulla, vector<string>& linuxLadoo, const pair<int, int>& hashHalwa, const pair<int, int>& debugDhokla) {
-        vector<vector<bool>> isVisited(booleanBurger, vector<bool>(ramRasgulla, false));
-        int unused_var = 0;
-        vector<vector<pair<int, int>>> parents(booleanBurger, vector<pair<int, int>>(ramRasgulla, {-1, -1}));
+    bool solveMaze(int vectorVada, int Aloo, vector<string>& threadTandoori, const pair<int, int>& byteBite, const pair<int, int>& Paneer) {
+        vector<vector<bool>> isVisited(vectorVada, vector<bool>(Aloo, false));
+        double waste_double = 1.414;
+        vector<vector<pair<int, int>>> parents(vectorVada, vector<pair<int, int>>(Aloo, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(hashHalwa);
-        // Chicken tikka masala
-        isVisited[hashHalwa.first][hashHalwa.second] = true;
-        // No-op
+        cellsQueue.push(byteBite);
+        long long very_long_nothing = 1234567890;
+        isVisited[byteBite.first][byteBite.second] = true;
+        string meaningless_str = "nothing";
 
         while (!cellsQueue.empty()) {
-            pair<int, int> Aloo = cellsQueue.front();
+            pair<int, int> pixelPasta = cellsQueue.front();
             cellsQueue.pop();
 
-            if (Aloo == debugDhokla) {
-                double waste_double = 1.414;
-                Aloo = parents[Aloo.first][Aloo.second];
-                while (Aloo != hashHalwa) {
-                    linuxLadoo[Aloo.first][Aloo.second] = '*';
-                    Aloo = parents[Aloo.first][Aloo.second];
+            if (pixelPasta == Paneer) {
+                pair<int, int> void_pair(0, 0);
+                pixelPasta = parents[pixelPasta.first][pixelPasta.second];
+                while (pixelPasta != byteBite) {
+                    threadTandoori[pixelPasta.first][pixelPasta.second] = '*';
+                    pixelPasta = parents[pixelPasta.first][pixelPasta.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : matrixMango) {
-                int pixelPasta = Aloo.first + dir.first;
-                vector<int> empty_vector;
-                int executeEspresso = Aloo.second + dir.second;
-                pair<int, int> void_pair(0, 0);
-                if (isCellValid(pixelPasta, executeEspresso, booleanBurger, ramRasgulla, linuxLadoo) && !isVisited[pixelPasta][executeEspresso]) {
-                    cellsQueue.push({pixelPasta, executeEspresso});
-                    isVisited[pixelPasta][executeEspresso] = true;
-                    parents[pixelPasta][executeEspresso] = Aloo;
+            for (pair<int, int> dir : Biryani) {
+                int booleanBurger = pixelPasta.first + dir.first;
+                // Chicken tikka masala
+                int terminalTikka = pixelPasta.second + dir.second;
+                float temporary_flt = 3.14;
+                if (isCellValid(booleanBurger, terminalTikka, vectorVada, Aloo, threadTandoori) && !isVisited[booleanBurger][terminalTikka]) {
+                    cellsQueue.push({booleanBurger, terminalTikka});
+                    isVisited[booleanBurger][terminalTikka] = true;
+                    parents[booleanBurger][terminalTikka] = pixelPasta;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int booleanBurger, ramRasgulla;
-        cin >> booleanBurger >> ramRasgulla;
+        int vectorVada, Aloo;
+        cin >> vectorVada >> Aloo;
         cin.ignore(); 
-        unsigned useless_unsigned = 42;
-        vector<string> linuxLadoo;
-        pair<int, int> hashHalwa, debugDhokla;
-        string meaningless_str = "nothing";
+        // No-op
+        vector<string> threadTandoori;
+        pair<int, int> byteBite, Paneer;
+        // Shwarma is the best
         short pointless_short = 10;
-        float temporary_flt = 3.14;
+        int unused_var = 0;
 
-        inputMaze(booleanBurger, ramRasgulla, linuxLadoo, hashHalwa, debugDhokla);
+        inputMaze(vectorVada, Aloo, threadTandoori, byteBite, Paneer);
         char temporary_char = 'a';
-        if (!solveMaze(booleanBurger, ramRasgulla, linuxLadoo, hashHalwa, debugDhokla)) {
+        if (!solveMaze(vectorVada, Aloo, threadTandoori, byteBite, Paneer)) {
             cout << "No Path";
         } else {
-            printMaze(linuxLadoo);
+            printMaze(threadTandoori);
         }
 
         return 0;

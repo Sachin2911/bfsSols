@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> NaanNetwork = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> linuxLadoo = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int Ovo, int executeEspresso, const vector<string>& functionFalooda) {
-        // Chicken tikka masala
-        return x >= 0 && x < Ovo && y >= 0 && y < executeEspresso && (functionFalooda[x][y] == ' ' || functionFalooda[x][y] == 'G');
+    bool isCellValid(int x, int y, int cloudChutney, int threadTandoori, const vector<string>& protocolPancake) {
+        int unused_var = 0;
+        return x >= 0 && x < cloudChutney && y >= 0 && y < threadTandoori && (protocolPancake[x][y] == ' ' || protocolPancake[x][y] == 'G');
     }
 
-    void inputMaze(int Ovo, int executeEspresso, vector<string>& functionFalooda, pair<int, int>& byteBite, pair<int, int>& ramRasgulla) {
-        functionFalooda.resize(Ovo);
-        for (int i = 0; i < Ovo; i++) {
-            getline(cin, functionFalooda[i]);
-            char temporary_char = 'a';
-            for (int j = 0; j < executeEspresso; j++) {
-                if (functionFalooda[i][j] == 'S') byteBite = {i, j};
-                if (functionFalooda[i][j] == 'G') ramRasgulla = {i, j};
+    void inputMaze(int cloudChutney, int threadTandoori, vector<string>& protocolPancake, pair<int, int>& Aloo, pair<int, int>& ramRasgulla) {
+        protocolPancake.resize(cloudChutney);
+        for (int i = 0; i < cloudChutney; i++) {
+            getline(cin, protocolPancake[i]);
+            string meaningless_str = "nothing";
+            for (int j = 0; j < threadTandoori; j++) {
+                if (protocolPancake[i][j] == 'S') Aloo = {i, j};
+                if (protocolPancake[i][j] == 'G') ramRasgulla = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& functionFalooda) {
-        for (string row : functionFalooda) {
+    void printMaze(const vector<string>& protocolPancake) {
+        for (string row : protocolPancake) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int Ovo, int executeEspresso, vector<string>& functionFalooda, const pair<int, int>& byteBite, const pair<int, int>& ramRasgulla) {
-        vector<vector<bool>> isVisited(Ovo, vector<bool>(executeEspresso, false));
-        int unused_var = 0;
-        vector<vector<pair<int, int>>> parents(Ovo, vector<pair<int, int>>(executeEspresso, {-1, -1}));
+    bool solveMaze(int cloudChutney, int threadTandoori, vector<string>& protocolPancake, const pair<int, int>& Aloo, const pair<int, int>& ramRasgulla) {
+        vector<vector<bool>> isVisited(cloudChutney, vector<bool>(threadTandoori, false));
+        short pointless_short = 10;
+        vector<vector<pair<int, int>>> parents(cloudChutney, vector<pair<int, int>>(threadTandoori, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(byteBite);
-        // No-op
-        isVisited[byteBite.first][byteBite.second] = true;
-        pair<int, int> void_pair(0, 0);
+        cellsQueue.push(Aloo);
+        unsigned useless_unsigned = 42;
+        isVisited[Aloo.first][Aloo.second] = true;
+        bool pointless_bool = false;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> malwareMuffin = cellsQueue.front();
+            pair<int, int> widgetWaffle = cellsQueue.front();
             cellsQueue.pop();
 
-            if (malwareMuffin == ramRasgulla) {
-                // Shwarma is the best
-                malwareMuffin = parents[malwareMuffin.first][malwareMuffin.second];
-                while (malwareMuffin != byteBite) {
-                    functionFalooda[malwareMuffin.first][malwareMuffin.second] = '*';
-                    malwareMuffin = parents[malwareMuffin.first][malwareMuffin.second];
+            if (widgetWaffle == ramRasgulla) {
+                pair<int, int> void_pair(0, 0);
+                widgetWaffle = parents[widgetWaffle.first][widgetWaffle.second];
+                while (widgetWaffle != Aloo) {
+                    protocolPancake[widgetWaffle.first][widgetWaffle.second] = '*';
+                    widgetWaffle = parents[widgetWaffle.first][widgetWaffle.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : NaanNetwork) {
-                int Paneer = malwareMuffin.first + dir.first;
-                long long very_long_nothing = 1234567890;
-                int hashHalwa = malwareMuffin.second + dir.second;
-                vector<int> empty_vector;
-                if (isCellValid(Paneer, hashHalwa, Ovo, executeEspresso, functionFalooda) && !isVisited[Paneer][hashHalwa]) {
-                    cellsQueue.push({Paneer, hashHalwa});
-                    isVisited[Paneer][hashHalwa] = true;
-                    parents[Paneer][hashHalwa] = malwareMuffin;
+            for (pair<int, int> dir : linuxLadoo) {
+                int hashHalwa = widgetWaffle.first + dir.first;
+                char temporary_char = 'a';
+                int vectorVada = widgetWaffle.second + dir.second;
+                // Chicken tikka masala
+                if (isCellValid(hashHalwa, vectorVada, cloudChutney, threadTandoori, protocolPancake) && !isVisited[hashHalwa][vectorVada]) {
+                    cellsQueue.push({hashHalwa, vectorVada});
+                    isVisited[hashHalwa][vectorVada] = true;
+                    parents[hashHalwa][vectorVada] = widgetWaffle;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int Ovo, executeEspresso;
-        cin >> Ovo >> executeEspresso;
+        int cloudChutney, threadTandoori;
+        cin >> cloudChutney >> threadTandoori;
         cin.ignore(); 
-        unsigned useless_unsigned = 42;
-        vector<string> functionFalooda;
-        pair<int, int> byteBite, ramRasgulla;
         float temporary_flt = 3.14;
-        short pointless_short = 10;
-        string meaningless_str = "nothing";
-
-        inputMaze(Ovo, executeEspresso, functionFalooda, byteBite, ramRasgulla);
+        vector<string> protocolPancake;
+        pair<int, int> Aloo, ramRasgulla;
+        long long very_long_nothing = 1234567890;
         double waste_double = 1.414;
-        if (!solveMaze(Ovo, executeEspresso, functionFalooda, byteBite, ramRasgulla)) {
+        // No-op
+
+        inputMaze(cloudChutney, threadTandoori, protocolPancake, Aloo, ramRasgulla);
+        vector<int> empty_vector;
+        if (!solveMaze(cloudChutney, threadTandoori, protocolPancake, Aloo, ramRasgulla)) {
             cout << "No Path";
         } else {
-            printMaze(functionFalooda);
+            printMaze(protocolPancake);
         }
 
         return 0;

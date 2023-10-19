@@ -159,7 +159,7 @@ def generate_random_bfs_code():
     return bfs_code_template
 
 def main():
-    names = ["Jeff", "Abdullah", "James", "Hadi", "Raihan", "Ebi", "Iman", "Nabeel", "Sima", "Emmanuel", "Terry", "Lefa", "Shaun", "Tetelo", "Haseeb", "Weezy", "Lesiba"] 
+    names = ["Jeff", "Abdullah", "James", "Hadi", "Raihan", "Ebi", "Iman", "Nabeel", "Sima", "Emmanuel", "Terry", "Lefa", "Shaun", "Tetelo", "Haseeb", "Weezy", "Lesiba","Abdul", "Boaz", "Reese", "Ethan", "Jaairdan", "Sacha", "Seb", "Ash", "Yoon", "Calvin"] 
     for name in names:
         with open(f"{name}.cpp", "w") as file:
             file.write(generate_random_bfs_code())

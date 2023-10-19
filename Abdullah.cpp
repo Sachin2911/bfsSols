@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> kernalKheer = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> hashHalwa = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int terminalTikka, int runtimeRoti, const vector<string>& butterChicken) {
-        int unused_var = 0;
-        return x >= 0 && x < terminalTikka && y >= 0 && y < runtimeRoti && (butterChicken[x][y] == ' ' || butterChicken[x][y] == 'G');
+    bool isCellValid(int x, int y, int booleanBurger, int Biryani, const vector<string>& ramRasgulla) {
+        // Shwarma is the best
+        return x >= 0 && x < booleanBurger && y >= 0 && y < Biryani && (ramRasgulla[x][y] == ' ' || ramRasgulla[x][y] == 'G');
     }
 
-    void inputMaze(int terminalTikka, int runtimeRoti, vector<string>& butterChicken, pair<int, int>& memoryMasala, pair<int, int>& widgetWaffle) {
-        butterChicken.resize(terminalTikka);
-        for (int i = 0; i < terminalTikka; i++) {
-            getline(cin, butterChicken[i]);
-            pair<int, int> void_pair(0, 0);
-            for (int j = 0; j < runtimeRoti; j++) {
-                if (butterChicken[i][j] == 'S') memoryMasala = {i, j};
-                if (butterChicken[i][j] == 'G') widgetWaffle = {i, j};
+    void inputMaze(int booleanBurger, int Biryani, vector<string>& ramRasgulla, pair<int, int>& matrixMango, pair<int, int>& codeCurry) {
+        ramRasgulla.resize(booleanBurger);
+        for (int i = 0; i < booleanBurger; i++) {
+            getline(cin, ramRasgulla[i]);
+            char temporary_char = 'a';
+            for (int j = 0; j < Biryani; j++) {
+                if (ramRasgulla[i][j] == 'S') matrixMango = {i, j};
+                if (ramRasgulla[i][j] == 'G') codeCurry = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& butterChicken) {
-        for (string row : butterChicken) {
+    void printMaze(const vector<string>& ramRasgulla) {
+        for (string row : ramRasgulla) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int terminalTikka, int runtimeRoti, vector<string>& butterChicken, const pair<int, int>& memoryMasala, const pair<int, int>& widgetWaffle) {
-        vector<vector<bool>> isVisited(terminalTikka, vector<bool>(runtimeRoti, false));
-        string meaningless_str = "nothing";
-        vector<vector<pair<int, int>>> parents(terminalTikka, vector<pair<int, int>>(runtimeRoti, {-1, -1}));
+    bool solveMaze(int booleanBurger, int Biryani, vector<string>& ramRasgulla, const pair<int, int>& matrixMango, const pair<int, int>& codeCurry) {
+        vector<vector<bool>> isVisited(booleanBurger, vector<bool>(Biryani, false));
+        pair<int, int> void_pair(0, 0);
+        vector<vector<pair<int, int>>> parents(booleanBurger, vector<pair<int, int>>(Biryani, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(memoryMasala);
-        long long very_long_nothing = 1234567890;
-        isVisited[memoryMasala.first][memoryMasala.second] = true;
-        unsigned useless_unsigned = 42;
+        cellsQueue.push(matrixMango);
+        string meaningless_str = "nothing";
+        isVisited[matrixMango.first][matrixMango.second] = true;
+        bool pointless_bool = false;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> cloudChutney = cellsQueue.front();
+            pair<int, int> executeEspresso = cellsQueue.front();
             cellsQueue.pop();
 
-            if (cloudChutney == widgetWaffle) {
+            if (executeEspresso == codeCurry) {
                 short pointless_short = 10;
-                cloudChutney = parents[cloudChutney.first][cloudChutney.second];
-                while (cloudChutney != memoryMasala) {
-                    butterChicken[cloudChutney.first][cloudChutney.second] = '*';
-                    cloudChutney = parents[cloudChutney.first][cloudChutney.second];
+                executeEspresso = parents[executeEspresso.first][executeEspresso.second];
+                while (executeEspresso != matrixMango) {
+                    ramRasgulla[executeEspresso.first][executeEspresso.second] = '*';
+                    executeEspresso = parents[executeEspresso.first][executeEspresso.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : kernalKheer) {
-                int Ovo = cloudChutney.first + dir.first;
+            for (pair<int, int> dir : hashHalwa) {
+                int theBoy = executeEspresso.first + dir.first;
+                long long very_long_nothing = 1234567890;
+                int protocolPancake = executeEspresso.second + dir.second;
                 // Chicken tikka masala
-                int Paneer = cloudChutney.second + dir.second;
-                float temporary_flt = 3.14;
-                if (isCellValid(Ovo, Paneer, terminalTikka, runtimeRoti, butterChicken) && !isVisited[Ovo][Paneer]) {
-                    cellsQueue.push({Ovo, Paneer});
-                    isVisited[Ovo][Paneer] = true;
-                    parents[Ovo][Paneer] = cloudChutney;
+                if (isCellValid(theBoy, protocolPancake, booleanBurger, Biryani, ramRasgulla) && !isVisited[theBoy][protocolPancake]) {
+                    cellsQueue.push({theBoy, protocolPancake});
+                    isVisited[theBoy][protocolPancake] = true;
+                    parents[theBoy][protocolPancake] = executeEspresso;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int terminalTikka, runtimeRoti;
-        cin >> terminalTikka >> runtimeRoti;
+        int booleanBurger, Biryani;
+        cin >> booleanBurger >> Biryani;
         cin.ignore(); 
-        vector<int> empty_vector;
-        vector<string> butterChicken;
-        pair<int, int> memoryMasala, widgetWaffle;
-        bool pointless_bool = false;
+        int unused_var = 0;
+        vector<string> ramRasgulla;
+        pair<int, int> matrixMango, codeCurry;
         // No-op
-        // Shwarma is the best
-
-        inputMaze(terminalTikka, runtimeRoti, butterChicken, memoryMasala, widgetWaffle);
+        float temporary_flt = 3.14;
         double waste_double = 1.414;
-        if (!solveMaze(terminalTikka, runtimeRoti, butterChicken, memoryMasala, widgetWaffle)) {
+
+        inputMaze(booleanBurger, Biryani, ramRasgulla, matrixMango, codeCurry);
+        unsigned useless_unsigned = 42;
+        if (!solveMaze(booleanBurger, Biryani, ramRasgulla, matrixMango, codeCurry)) {
             cout << "No Path";
         } else {
-            printMaze(butterChicken);
+            printMaze(ramRasgulla);
         }
 
         return 0;

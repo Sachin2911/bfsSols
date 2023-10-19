@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> protocolPancake = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> cloudChutney = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int butterChicken, int executeEspresso, const vector<string>& linuxLadoo) {
-        unsigned useless_unsigned = 42;
-        return x >= 0 && x < butterChicken && y >= 0 && y < executeEspresso && (linuxLadoo[x][y] == ' ' || linuxLadoo[x][y] == 'G');
+    bool isCellValid(int x, int y, int NaanNetwork, int Biryani, const vector<string>& apiApplePie) {
+        vector<int> empty_vector;
+        return x >= 0 && x < NaanNetwork && y >= 0 && y < Biryani && (apiApplePie[x][y] == ' ' || apiApplePie[x][y] == 'G');
     }
 
-    void inputMaze(int butterChicken, int executeEspresso, vector<string>& linuxLadoo, pair<int, int>& byteBite, pair<int, int>& DrizzyDre) {
-        linuxLadoo.resize(butterChicken);
-        for (int i = 0; i < butterChicken; i++) {
-            getline(cin, linuxLadoo[i]);
-            bool pointless_bool = false;
-            for (int j = 0; j < executeEspresso; j++) {
-                if (linuxLadoo[i][j] == 'S') byteBite = {i, j};
-                if (linuxLadoo[i][j] == 'G') DrizzyDre = {i, j};
+    void inputMaze(int NaanNetwork, int Biryani, vector<string>& apiApplePie, pair<int, int>& frameworkFrappe, pair<int, int>& DrizzyDre) {
+        apiApplePie.resize(NaanNetwork);
+        for (int i = 0; i < NaanNetwork; i++) {
+            getline(cin, apiApplePie[i]);
+            double waste_double = 1.414;
+            for (int j = 0; j < Biryani; j++) {
+                if (apiApplePie[i][j] == 'S') frameworkFrappe = {i, j};
+                if (apiApplePie[i][j] == 'G') DrizzyDre = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& linuxLadoo) {
-        for (string row : linuxLadoo) {
+    void printMaze(const vector<string>& apiApplePie) {
+        for (string row : apiApplePie) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int butterChicken, int executeEspresso, vector<string>& linuxLadoo, const pair<int, int>& byteBite, const pair<int, int>& DrizzyDre) {
-        vector<vector<bool>> isVisited(butterChicken, vector<bool>(executeEspresso, false));
-        // Chicken tikka masala
-        vector<vector<pair<int, int>>> parents(butterChicken, vector<pair<int, int>>(executeEspresso, {-1, -1}));
+    bool solveMaze(int NaanNetwork, int Biryani, vector<string>& apiApplePie, const pair<int, int>& frameworkFrappe, const pair<int, int>& DrizzyDre) {
+        vector<vector<bool>> isVisited(NaanNetwork, vector<bool>(Biryani, false));
+        pair<int, int> void_pair(0, 0);
+        vector<vector<pair<int, int>>> parents(NaanNetwork, vector<pair<int, int>>(Biryani, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(byteBite);
-        pair<int, int> void_pair(0, 0);
-        isVisited[byteBite.first][byteBite.second] = true;
-        short pointless_short = 10;
+        cellsQueue.push(frameworkFrappe);
+        bool pointless_bool = false;
+        isVisited[frameworkFrappe.first][frameworkFrappe.second] = true;
+        // Chicken tikka masala
 
         while (!cellsQueue.empty()) {
-            pair<int, int> terminalTikka = cellsQueue.front();
+            pair<int, int> kernalKheer = cellsQueue.front();
             cellsQueue.pop();
 
-            if (terminalTikka == DrizzyDre) {
-                vector<int> empty_vector;
-                terminalTikka = parents[terminalTikka.first][terminalTikka.second];
-                while (terminalTikka != byteBite) {
-                    linuxLadoo[terminalTikka.first][terminalTikka.second] = '*';
-                    terminalTikka = parents[terminalTikka.first][terminalTikka.second];
+            if (kernalKheer == DrizzyDre) {
+                string meaningless_str = "nothing";
+                kernalKheer = parents[kernalKheer.first][kernalKheer.second];
+                while (kernalKheer != frameworkFrappe) {
+                    apiApplePie[kernalKheer.first][kernalKheer.second] = '*';
+                    kernalKheer = parents[kernalKheer.first][kernalKheer.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : protocolPancake) {
-                int frameworkFrappe = terminalTikka.first + dir.first;
-                float temporary_flt = 3.14;
-                int hashHalwa = terminalTikka.second + dir.second;
-                int unused_var = 0;
-                if (isCellValid(frameworkFrappe, hashHalwa, butterChicken, executeEspresso, linuxLadoo) && !isVisited[frameworkFrappe][hashHalwa]) {
-                    cellsQueue.push({frameworkFrappe, hashHalwa});
-                    isVisited[frameworkFrappe][hashHalwa] = true;
-                    parents[frameworkFrappe][hashHalwa] = terminalTikka;
+            for (pair<int, int> dir : cloudChutney) {
+                int protocolPancake = kernalKheer.first + dir.first;
+                char temporary_char = 'a';
+                int functionFalooda = kernalKheer.second + dir.second;
+                // No-op
+                if (isCellValid(protocolPancake, functionFalooda, NaanNetwork, Biryani, apiApplePie) && !isVisited[protocolPancake][functionFalooda]) {
+                    cellsQueue.push({protocolPancake, functionFalooda});
+                    isVisited[protocolPancake][functionFalooda] = true;
+                    parents[protocolPancake][functionFalooda] = kernalKheer;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int butterChicken, executeEspresso;
-        cin >> butterChicken >> executeEspresso;
+        int NaanNetwork, Biryani;
+        cin >> NaanNetwork >> Biryani;
         cin.ignore(); 
         long long very_long_nothing = 1234567890;
-        vector<string> linuxLadoo;
-        pair<int, int> byteBite, DrizzyDre;
-        string meaningless_str = "nothing";
-        // No-op
-        char temporary_char = 'a';
-
-        inputMaze(butterChicken, executeEspresso, linuxLadoo, byteBite, DrizzyDre);
+        vector<string> apiApplePie;
+        pair<int, int> frameworkFrappe, DrizzyDre;
+        short pointless_short = 10;
         // Shwarma is the best
-        if (!solveMaze(butterChicken, executeEspresso, linuxLadoo, byteBite, DrizzyDre)) {
+        float temporary_flt = 3.14;
+
+        inputMaze(NaanNetwork, Biryani, apiApplePie, frameworkFrappe, DrizzyDre);
+        unsigned useless_unsigned = 42;
+        if (!solveMaze(NaanNetwork, Biryani, apiApplePie, frameworkFrappe, DrizzyDre)) {
             cout << "No Path";
         } else {
-            printMaze(linuxLadoo);
+            printMaze(apiApplePie);
         }
 
         return 0;

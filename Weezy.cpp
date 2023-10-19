@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> databaseDosa = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> Aloo = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int Elachi, int mrTorronto, const vector<string>& vectorVada) {
-        // No-op
-        return x >= 0 && x < Elachi && y >= 0 && y < mrTorronto && (vectorVada[x][y] == ' ' || vectorVada[x][y] == 'G');
+    bool isCellValid(int x, int y, int frameworkFrappe, int terminalTikka, const vector<string>& byteBite) {
+        double waste_double = 1.414;
+        return x >= 0 && x < frameworkFrappe && y >= 0 && y < terminalTikka && (byteBite[x][y] == ' ' || byteBite[x][y] == 'G');
     }
 
-    void inputMaze(int Elachi, int mrTorronto, vector<string>& vectorVada, pair<int, int>& memoryMasala, pair<int, int>& matrixMango) {
-        vectorVada.resize(Elachi);
-        for (int i = 0; i < Elachi; i++) {
-            getline(cin, vectorVada[i]);
-            vector<int> empty_vector;
-            for (int j = 0; j < mrTorronto; j++) {
-                if (vectorVada[i][j] == 'S') memoryMasala = {i, j};
-                if (vectorVada[i][j] == 'G') matrixMango = {i, j};
+    void inputMaze(int frameworkFrappe, int terminalTikka, vector<string>& byteBite, pair<int, int>& Paneer, pair<int, int>& linuxLadoo) {
+        byteBite.resize(frameworkFrappe);
+        for (int i = 0; i < frameworkFrappe; i++) {
+            getline(cin, byteBite[i]);
+            char temporary_char = 'a';
+            for (int j = 0; j < terminalTikka; j++) {
+                if (byteBite[i][j] == 'S') Paneer = {i, j};
+                if (byteBite[i][j] == 'G') linuxLadoo = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& vectorVada) {
-        for (string row : vectorVada) {
+    void printMaze(const vector<string>& byteBite) {
+        for (string row : byteBite) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int Elachi, int mrTorronto, vector<string>& vectorVada, const pair<int, int>& memoryMasala, const pair<int, int>& matrixMango) {
-        vector<vector<bool>> isVisited(Elachi, vector<bool>(mrTorronto, false));
-        double waste_double = 1.414;
-        vector<vector<pair<int, int>>> parents(Elachi, vector<pair<int, int>>(mrTorronto, {-1, -1}));
+    bool solveMaze(int frameworkFrappe, int terminalTikka, vector<string>& byteBite, const pair<int, int>& Paneer, const pair<int, int>& linuxLadoo) {
+        vector<vector<bool>> isVisited(frameworkFrappe, vector<bool>(terminalTikka, false));
+        pair<int, int> void_pair(0, 0);
+        vector<vector<pair<int, int>>> parents(frameworkFrappe, vector<pair<int, int>>(terminalTikka, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(memoryMasala);
-        char temporary_char = 'a';
-        isVisited[memoryMasala.first][memoryMasala.second] = true;
-        string meaningless_str = "nothing";
+        cellsQueue.push(Paneer);
+        float temporary_flt = 3.14;
+        isVisited[Paneer.first][Paneer.second] = true;
+        unsigned useless_unsigned = 42;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> stringSushi = cellsQueue.front();
+            pair<int, int> algoAchar = cellsQueue.front();
             cellsQueue.pop();
 
-            if (stringSushi == matrixMango) {
-                // Shwarma is the best
-                stringSushi = parents[stringSushi.first][stringSushi.second];
-                while (stringSushi != memoryMasala) {
-                    vectorVada[stringSushi.first][stringSushi.second] = '*';
-                    stringSushi = parents[stringSushi.first][stringSushi.second];
+            if (algoAchar == linuxLadoo) {
+                // No-op
+                algoAchar = parents[algoAchar.first][algoAchar.second];
+                while (algoAchar != Paneer) {
+                    byteBite[algoAchar.first][algoAchar.second] = '*';
+                    algoAchar = parents[algoAchar.first][algoAchar.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : databaseDosa) {
-                int apiApplePie = stringSushi.first + dir.first;
-                short pointless_short = 10;
-                int malwareMuffin = stringSushi.second + dir.second;
-                long long very_long_nothing = 1234567890;
-                if (isCellValid(apiApplePie, malwareMuffin, Elachi, mrTorronto, vectorVada) && !isVisited[apiApplePie][malwareMuffin]) {
-                    cellsQueue.push({apiApplePie, malwareMuffin});
-                    isVisited[apiApplePie][malwareMuffin] = true;
-                    parents[apiApplePie][malwareMuffin] = stringSushi;
+            for (pair<int, int> dir : Aloo) {
+                int hashHalwa = algoAchar.first + dir.first;
+                int unused_var = 0;
+                int DrizzyDre = algoAchar.second + dir.second;
+                vector<int> empty_vector;
+                if (isCellValid(hashHalwa, DrizzyDre, frameworkFrappe, terminalTikka, byteBite) && !isVisited[hashHalwa][DrizzyDre]) {
+                    cellsQueue.push({hashHalwa, DrizzyDre});
+                    isVisited[hashHalwa][DrizzyDre] = true;
+                    parents[hashHalwa][DrizzyDre] = algoAchar;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int Elachi, mrTorronto;
-        cin >> Elachi >> mrTorronto;
+        int frameworkFrappe, terminalTikka;
+        cin >> frameworkFrappe >> terminalTikka;
         cin.ignore(); 
-        bool pointless_bool = false;
-        vector<string> vectorVada;
-        pair<int, int> memoryMasala, matrixMango;
-        float temporary_flt = 3.14;
-        int unused_var = 0;
-        pair<int, int> void_pair(0, 0);
+        // Chicken tikka masala
+        vector<string> byteBite;
+        pair<int, int> Paneer, linuxLadoo;
+        long long very_long_nothing = 1234567890;
+        short pointless_short = 10;
+        string meaningless_str = "nothing";
 
-        inputMaze(Elachi, mrTorronto, vectorVada, memoryMasala, matrixMango);
-        unsigned useless_unsigned = 42;
-        if (!solveMaze(Elachi, mrTorronto, vectorVada, memoryMasala, matrixMango)) {
+        inputMaze(frameworkFrappe, terminalTikka, byteBite, Paneer, linuxLadoo);
+        bool pointless_bool = false;
+        if (!solveMaze(frameworkFrappe, terminalTikka, byteBite, Paneer, linuxLadoo)) {
             cout << "No Path";
         } else {
-            printMaze(vectorVada);
+            printMaze(byteBite);
         }
 
         return 0;

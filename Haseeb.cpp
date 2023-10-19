@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> apiApplePie = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> frameworkFrappe = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int databaseDosa, int protocolPancake, const vector<string>& byteBite) {
-        unsigned useless_unsigned = 42;
-        return x >= 0 && x < databaseDosa && y >= 0 && y < protocolPancake && (byteBite[x][y] == ' ' || byteBite[x][y] == 'G');
+    bool isCellValid(int x, int y, int threadTandoori, int mrTorronto, const vector<string>& vectorVada) {
+        vector<int> empty_vector;
+        return x >= 0 && x < threadTandoori && y >= 0 && y < mrTorronto && (vectorVada[x][y] == ' ' || vectorVada[x][y] == 'G');
     }
 
-    void inputMaze(int databaseDosa, int protocolPancake, vector<string>& byteBite, pair<int, int>& frameworkFrappe, pair<int, int>& DrizzyDre) {
-        byteBite.resize(databaseDosa);
-        for (int i = 0; i < databaseDosa; i++) {
-            getline(cin, byteBite[i]);
-            // Chicken tikka masala
-            for (int j = 0; j < protocolPancake; j++) {
-                if (byteBite[i][j] == 'S') frameworkFrappe = {i, j};
-                if (byteBite[i][j] == 'G') DrizzyDre = {i, j};
+    void inputMaze(int threadTandoori, int mrTorronto, vector<string>& vectorVada, pair<int, int>& graphGulab, pair<int, int>& apiApplePie) {
+        vectorVada.resize(threadTandoori);
+        for (int i = 0; i < threadTandoori; i++) {
+            getline(cin, vectorVada[i]);
+            long long very_long_nothing = 1234567890;
+            for (int j = 0; j < mrTorronto; j++) {
+                if (vectorVada[i][j] == 'S') graphGulab = {i, j};
+                if (vectorVada[i][j] == 'G') apiApplePie = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& byteBite) {
-        for (string row : byteBite) {
+    void printMaze(const vector<string>& vectorVada) {
+        for (string row : vectorVada) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int databaseDosa, int protocolPancake, vector<string>& byteBite, const pair<int, int>& frameworkFrappe, const pair<int, int>& DrizzyDre) {
-        vector<vector<bool>> isVisited(databaseDosa, vector<bool>(protocolPancake, false));
-        short pointless_short = 10;
-        vector<vector<pair<int, int>>> parents(databaseDosa, vector<pair<int, int>>(protocolPancake, {-1, -1}));
+    bool solveMaze(int threadTandoori, int mrTorronto, vector<string>& vectorVada, const pair<int, int>& graphGulab, const pair<int, int>& apiApplePie) {
+        vector<vector<bool>> isVisited(threadTandoori, vector<bool>(mrTorronto, false));
+        // No-op
+        vector<vector<pair<int, int>>> parents(threadTandoori, vector<pair<int, int>>(mrTorronto, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(frameworkFrappe);
-        vector<int> empty_vector;
-        isVisited[frameworkFrappe.first][frameworkFrappe.second] = true;
-        bool pointless_bool = false;
+        cellsQueue.push(graphGulab);
+        double waste_double = 1.414;
+        isVisited[graphGulab.first][graphGulab.second] = true;
+        // Shwarma is the best
 
         while (!cellsQueue.empty()) {
-            pair<int, int> stackSamosa = cellsQueue.front();
+            pair<int, int> pixelPasta = cellsQueue.front();
             cellsQueue.pop();
 
-            if (stackSamosa == DrizzyDre) {
-                string meaningless_str = "nothing";
-                stackSamosa = parents[stackSamosa.first][stackSamosa.second];
-                while (stackSamosa != frameworkFrappe) {
-                    byteBite[stackSamosa.first][stackSamosa.second] = '*';
-                    stackSamosa = parents[stackSamosa.first][stackSamosa.second];
+            if (pixelPasta == apiApplePie) {
+                short pointless_short = 10;
+                pixelPasta = parents[pixelPasta.first][pixelPasta.second];
+                while (pixelPasta != graphGulab) {
+                    vectorVada[pixelPasta.first][pixelPasta.second] = '*';
+                    pixelPasta = parents[pixelPasta.first][pixelPasta.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : apiApplePie) {
-                int Biryani = stackSamosa.first + dir.first;
-                float temporary_flt = 3.14;
-                int matrixMango = stackSamosa.second + dir.second;
-                // No-op
-                if (isCellValid(Biryani, matrixMango, databaseDosa, protocolPancake, byteBite) && !isVisited[Biryani][matrixMango]) {
-                    cellsQueue.push({Biryani, matrixMango});
-                    isVisited[Biryani][matrixMango] = true;
-                    parents[Biryani][matrixMango] = stackSamosa;
+            for (pair<int, int> dir : frameworkFrappe) {
+                int binaryBhaji = pixelPasta.first + dir.first;
+                bool pointless_bool = false;
+                int nodeNoodles = pixelPasta.second + dir.second;
+                pair<int, int> void_pair(0, 0);
+                if (isCellValid(binaryBhaji, nodeNoodles, threadTandoori, mrTorronto, vectorVada) && !isVisited[binaryBhaji][nodeNoodles]) {
+                    cellsQueue.push({binaryBhaji, nodeNoodles});
+                    isVisited[binaryBhaji][nodeNoodles] = true;
+                    parents[binaryBhaji][nodeNoodles] = pixelPasta;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int databaseDosa, protocolPancake;
-        cin >> databaseDosa >> protocolPancake;
+        int threadTandoori, mrTorronto;
+        cin >> threadTandoori >> mrTorronto;
         cin.ignore(); 
-        long long very_long_nothing = 1234567890;
-        vector<string> byteBite;
-        pair<int, int> frameworkFrappe, DrizzyDre;
-        int unused_var = 0;
+        string meaningless_str = "nothing";
+        vector<string> vectorVada;
+        pair<int, int> graphGulab, apiApplePie;
         char temporary_char = 'a';
-        pair<int, int> void_pair(0, 0);
+        unsigned useless_unsigned = 42;
+        int unused_var = 0;
 
-        inputMaze(databaseDosa, protocolPancake, byteBite, frameworkFrappe, DrizzyDre);
-        double waste_double = 1.414;
-        if (!solveMaze(databaseDosa, protocolPancake, byteBite, frameworkFrappe, DrizzyDre)) {
+        inputMaze(threadTandoori, mrTorronto, vectorVada, graphGulab, apiApplePie);
+        // Chicken tikka masala
+        if (!solveMaze(threadTandoori, mrTorronto, vectorVada, graphGulab, apiApplePie)) {
             cout << "No Path";
         } else {
-            printMaze(byteBite);
+            printMaze(vectorVada);
         }
 
         return 0;

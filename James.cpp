@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> loopLassi = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> functionFalooda = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int Ovo, int Biryani, const vector<string>& Kulfi) {
-        // No-op
-        return x >= 0 && x < Ovo && y >= 0 && y < Biryani && (Kulfi[x][y] == ' ' || Kulfi[x][y] == 'G');
+    bool isCellValid(int x, int y, int Biryani, int heapHummus, const vector<string>& charChai) {
+        pair<int, int> void_pair(0, 0);
+        return x >= 0 && x < Biryani && y >= 0 && y < heapHummus && (charChai[x][y] == ' ' || charChai[x][y] == 'G');
     }
 
-    void inputMaze(int Ovo, int Biryani, vector<string>& Kulfi, pair<int, int>& linuxLadoo, pair<int, int>& stackSamosa) {
-        Kulfi.resize(Ovo);
-        for (int i = 0; i < Ovo; i++) {
-            getline(cin, Kulfi[i]);
-            bool pointless_bool = false;
-            for (int j = 0; j < Biryani; j++) {
-                if (Kulfi[i][j] == 'S') linuxLadoo = {i, j};
-                if (Kulfi[i][j] == 'G') stackSamosa = {i, j};
+    void inputMaze(int Biryani, int heapHummus, vector<string>& charChai, pair<int, int>& ramRasgulla, pair<int, int>& Paneer) {
+        charChai.resize(Biryani);
+        for (int i = 0; i < Biryani; i++) {
+            getline(cin, charChai[i]);
+            int unused_var = 0;
+            for (int j = 0; j < heapHummus; j++) {
+                if (charChai[i][j] == 'S') ramRasgulla = {i, j};
+                if (charChai[i][j] == 'G') Paneer = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& Kulfi) {
-        for (string row : Kulfi) {
+    void printMaze(const vector<string>& charChai) {
+        for (string row : charChai) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int Ovo, int Biryani, vector<string>& Kulfi, const pair<int, int>& linuxLadoo, const pair<int, int>& stackSamosa) {
-        vector<vector<bool>> isVisited(Ovo, vector<bool>(Biryani, false));
+    bool solveMaze(int Biryani, int heapHummus, vector<string>& charChai, const pair<int, int>& ramRasgulla, const pair<int, int>& Paneer) {
+        vector<vector<bool>> isVisited(Biryani, vector<bool>(heapHummus, false));
         double waste_double = 1.414;
-        vector<vector<pair<int, int>>> parents(Ovo, vector<pair<int, int>>(Biryani, {-1, -1}));
+        vector<vector<pair<int, int>>> parents(Biryani, vector<pair<int, int>>(heapHummus, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(linuxLadoo);
-        int unused_var = 0;
-        isVisited[linuxLadoo.first][linuxLadoo.second] = true;
-        // Shwarma is the best
+        cellsQueue.push(ramRasgulla);
+        string meaningless_str = "nothing";
+        isVisited[ramRasgulla.first][ramRasgulla.second] = true;
+        float temporary_flt = 3.14;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> executeEspresso = cellsQueue.front();
+            pair<int, int> pixelPasta = cellsQueue.front();
             cellsQueue.pop();
 
-            if (executeEspresso == stackSamosa) {
-                vector<int> empty_vector;
-                executeEspresso = parents[executeEspresso.first][executeEspresso.second];
-                while (executeEspresso != linuxLadoo) {
-                    Kulfi[executeEspresso.first][executeEspresso.second] = '*';
-                    executeEspresso = parents[executeEspresso.first][executeEspresso.second];
+            if (pixelPasta == Paneer) {
+                // No-op
+                pixelPasta = parents[pixelPasta.first][pixelPasta.second];
+                while (pixelPasta != ramRasgulla) {
+                    charChai[pixelPasta.first][pixelPasta.second] = '*';
+                    pixelPasta = parents[pixelPasta.first][pixelPasta.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : loopLassi) {
-                int NaanNetwork = executeEspresso.first + dir.first;
-                short pointless_short = 10;
-                int threadTandoori = executeEspresso.second + dir.second;
-                unsigned useless_unsigned = 42;
-                if (isCellValid(NaanNetwork, threadTandoori, Ovo, Biryani, Kulfi) && !isVisited[NaanNetwork][threadTandoori]) {
-                    cellsQueue.push({NaanNetwork, threadTandoori});
-                    isVisited[NaanNetwork][threadTandoori] = true;
-                    parents[NaanNetwork][threadTandoori] = executeEspresso;
+            for (pair<int, int> dir : functionFalooda) {
+                int NaanNetwork = pixelPasta.first + dir.first;
+                vector<int> empty_vector;
+                int Kulfi = pixelPasta.second + dir.second;
+                // Shwarma is the best
+                if (isCellValid(NaanNetwork, Kulfi, Biryani, heapHummus, charChai) && !isVisited[NaanNetwork][Kulfi]) {
+                    cellsQueue.push({NaanNetwork, Kulfi});
+                    isVisited[NaanNetwork][Kulfi] = true;
+                    parents[NaanNetwork][Kulfi] = pixelPasta;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int Ovo, Biryani;
-        cin >> Ovo >> Biryani;
+        int Biryani, heapHummus;
+        cin >> Biryani >> heapHummus;
         cin.ignore(); 
+        short pointless_short = 10;
+        vector<string> charChai;
+        pair<int, int> ramRasgulla, Paneer;
         long long very_long_nothing = 1234567890;
-        vector<string> Kulfi;
-        pair<int, int> linuxLadoo, stackSamosa;
-        string meaningless_str = "nothing";
-        pair<int, int> void_pair(0, 0);
-        float temporary_flt = 3.14;
-
-        inputMaze(Ovo, Biryani, Kulfi, linuxLadoo, stackSamosa);
+        bool pointless_bool = false;
         char temporary_char = 'a';
-        if (!solveMaze(Ovo, Biryani, Kulfi, linuxLadoo, stackSamosa)) {
+
+        inputMaze(Biryani, heapHummus, charChai, ramRasgulla, Paneer);
+        unsigned useless_unsigned = 42;
+        if (!solveMaze(Biryani, heapHummus, charChai, ramRasgulla, Paneer)) {
             cout << "No Path";
         } else {
-            printMaze(Kulfi);
+            printMaze(charChai);
         }
 
         return 0;

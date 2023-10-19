@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> charChai = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> mrTorronto = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int ramRasgulla, int NaanNetwork, const vector<string>& stackSamosa) {
-        double waste_double = 1.414;
-        return x >= 0 && x < ramRasgulla && y >= 0 && y < NaanNetwork && (stackSamosa[x][y] == ' ' || stackSamosa[x][y] == 'G');
+    bool isCellValid(int x, int y, int heapHummus, int databaseDosa, const vector<string>& algoAchar) {
+        // No-op
+        return x >= 0 && x < heapHummus && y >= 0 && y < databaseDosa && (algoAchar[x][y] == ' ' || algoAchar[x][y] == 'G');
     }
 
-    void inputMaze(int ramRasgulla, int NaanNetwork, vector<string>& stackSamosa, pair<int, int>& DrizzyDre, pair<int, int>& Elachi) {
-        stackSamosa.resize(ramRasgulla);
-        for (int i = 0; i < ramRasgulla; i++) {
-            getline(cin, stackSamosa[i]);
-            short pointless_short = 10;
-            for (int j = 0; j < NaanNetwork; j++) {
-                if (stackSamosa[i][j] == 'S') DrizzyDre = {i, j};
-                if (stackSamosa[i][j] == 'G') Elachi = {i, j};
+    void inputMaze(int heapHummus, int databaseDosa, vector<string>& algoAchar, pair<int, int>& cloudChutney, pair<int, int>& charChai) {
+        algoAchar.resize(heapHummus);
+        for (int i = 0; i < heapHummus; i++) {
+            getline(cin, algoAchar[i]);
+            // Chicken tikka masala
+            for (int j = 0; j < databaseDosa; j++) {
+                if (algoAchar[i][j] == 'S') cloudChutney = {i, j};
+                if (algoAchar[i][j] == 'G') charChai = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& stackSamosa) {
-        for (string row : stackSamosa) {
+    void printMaze(const vector<string>& algoAchar) {
+        for (string row : algoAchar) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int ramRasgulla, int NaanNetwork, vector<string>& stackSamosa, const pair<int, int>& DrizzyDre, const pair<int, int>& Elachi) {
-        vector<vector<bool>> isVisited(ramRasgulla, vector<bool>(NaanNetwork, false));
-        int unused_var = 0;
-        vector<vector<pair<int, int>>> parents(ramRasgulla, vector<pair<int, int>>(NaanNetwork, {-1, -1}));
+    bool solveMaze(int heapHummus, int databaseDosa, vector<string>& algoAchar, const pair<int, int>& cloudChutney, const pair<int, int>& charChai) {
+        vector<vector<bool>> isVisited(heapHummus, vector<bool>(databaseDosa, false));
+        float temporary_flt = 3.14;
+        vector<vector<pair<int, int>>> parents(heapHummus, vector<pair<int, int>>(databaseDosa, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(DrizzyDre);
-        string meaningless_str = "nothing";
-        isVisited[DrizzyDre.first][DrizzyDre.second] = true;
-        // Shwarma is the best
+        cellsQueue.push(cloudChutney);
+        unsigned useless_unsigned = 42;
+        isVisited[cloudChutney.first][cloudChutney.second] = true;
+        bool pointless_bool = false;
 
         while (!cellsQueue.empty()) {
-            pair<int, int> databaseDosa = cellsQueue.front();
+            pair<int, int> sixGod = cellsQueue.front();
             cellsQueue.pop();
 
-            if (databaseDosa == Elachi) {
-                bool pointless_bool = false;
-                databaseDosa = parents[databaseDosa.first][databaseDosa.second];
-                while (databaseDosa != DrizzyDre) {
-                    stackSamosa[databaseDosa.first][databaseDosa.second] = '*';
-                    databaseDosa = parents[databaseDosa.first][databaseDosa.second];
+            if (sixGod == charChai) {
+                pair<int, int> void_pair(0, 0);
+                sixGod = parents[sixGod.first][sixGod.second];
+                while (sixGod != cloudChutney) {
+                    algoAchar[sixGod.first][sixGod.second] = '*';
+                    sixGod = parents[sixGod.first][sixGod.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : charChai) {
-                int syntaxSyrup = databaseDosa.first + dir.first;
-                // Chicken tikka masala
-                int heapHummus = databaseDosa.second + dir.second;
-                float temporary_flt = 3.14;
-                if (isCellValid(syntaxSyrup, heapHummus, ramRasgulla, NaanNetwork, stackSamosa) && !isVisited[syntaxSyrup][heapHummus]) {
-                    cellsQueue.push({syntaxSyrup, heapHummus});
-                    isVisited[syntaxSyrup][heapHummus] = true;
-                    parents[syntaxSyrup][heapHummus] = databaseDosa;
+            for (pair<int, int> dir : mrTorronto) {
+                int executeEspresso = sixGod.first + dir.first;
+                string meaningless_str = "nothing";
+                int apiApplePie = sixGod.second + dir.second;
+                int unused_var = 0;
+                if (isCellValid(executeEspresso, apiApplePie, heapHummus, databaseDosa, algoAchar) && !isVisited[executeEspresso][apiApplePie]) {
+                    cellsQueue.push({executeEspresso, apiApplePie});
+                    isVisited[executeEspresso][apiApplePie] = true;
+                    parents[executeEspresso][apiApplePie] = sixGod;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int ramRasgulla, NaanNetwork;
-        cin >> ramRasgulla >> NaanNetwork;
+        int heapHummus, databaseDosa;
+        cin >> heapHummus >> databaseDosa;
         cin.ignore(); 
-        // No-op
-        vector<string> stackSamosa;
-        pair<int, int> DrizzyDre, Elachi;
-        vector<int> empty_vector;
+        short pointless_short = 10;
+        vector<string> algoAchar;
+        pair<int, int> cloudChutney, charChai;
+        double waste_double = 1.414;
+        long long very_long_nothing = 1234567890;
         char temporary_char = 'a';
-        unsigned useless_unsigned = 42;
 
-        inputMaze(ramRasgulla, NaanNetwork, stackSamosa, DrizzyDre, Elachi);
-        pair<int, int> void_pair(0, 0);
-        if (!solveMaze(ramRasgulla, NaanNetwork, stackSamosa, DrizzyDre, Elachi)) {
+        inputMaze(heapHummus, databaseDosa, algoAchar, cloudChutney, charChai);
+        // Shwarma is the best
+        if (!solveMaze(heapHummus, databaseDosa, algoAchar, cloudChutney, charChai)) {
             cout << "No Path";
         } else {
-            printMaze(stackSamosa);
+            printMaze(algoAchar);
         }
 
         return 0;

@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> malwareMuffin = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> heapHummus = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int NaanNetwork, int pixelPasta, const vector<string>& Kulfi) {
-        char temporary_char = 'a';
-        return x >= 0 && x < NaanNetwork && y >= 0 && y < pixelPasta && (Kulfi[x][y] == ' ' || Kulfi[x][y] == 'G');
+    bool isCellValid(int x, int y, int memoryMasala, int frameworkFrappe, const vector<string>& runtimeRoti) {
+        pair<int, int> void_pair(0, 0);
+        return x >= 0 && x < memoryMasala && y >= 0 && y < frameworkFrappe && (runtimeRoti[x][y] == ' ' || runtimeRoti[x][y] == 'G');
     }
 
-    void inputMaze(int NaanNetwork, int pixelPasta, vector<string>& Kulfi, pair<int, int>& cloudChutney, pair<int, int>& protocolPancake) {
-        Kulfi.resize(NaanNetwork);
-        for (int i = 0; i < NaanNetwork; i++) {
-            getline(cin, Kulfi[i]);
-            pair<int, int> void_pair(0, 0);
-            for (int j = 0; j < pixelPasta; j++) {
-                if (Kulfi[i][j] == 'S') cloudChutney = {i, j};
-                if (Kulfi[i][j] == 'G') protocolPancake = {i, j};
+    void inputMaze(int memoryMasala, int frameworkFrappe, vector<string>& runtimeRoti, pair<int, int>& functionFalooda, pair<int, int>& stringSushi) {
+        runtimeRoti.resize(memoryMasala);
+        for (int i = 0; i < memoryMasala; i++) {
+            getline(cin, runtimeRoti[i]);
+            int unused_var = 0;
+            for (int j = 0; j < frameworkFrappe; j++) {
+                if (runtimeRoti[i][j] == 'S') functionFalooda = {i, j};
+                if (runtimeRoti[i][j] == 'G') stringSushi = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& Kulfi) {
-        for (string row : Kulfi) {
+    void printMaze(const vector<string>& runtimeRoti) {
+        for (string row : runtimeRoti) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int NaanNetwork, int pixelPasta, vector<string>& Kulfi, const pair<int, int>& cloudChutney, const pair<int, int>& protocolPancake) {
-        vector<vector<bool>> isVisited(NaanNetwork, vector<bool>(pixelPasta, false));
-        bool pointless_bool = false;
-        vector<vector<pair<int, int>>> parents(NaanNetwork, vector<pair<int, int>>(pixelPasta, {-1, -1}));
+    bool solveMaze(int memoryMasala, int frameworkFrappe, vector<string>& runtimeRoti, const pair<int, int>& functionFalooda, const pair<int, int>& stringSushi) {
+        vector<vector<bool>> isVisited(memoryMasala, vector<bool>(frameworkFrappe, false));
+        string meaningless_str = "nothing";
+        vector<vector<pair<int, int>>> parents(memoryMasala, vector<pair<int, int>>(frameworkFrappe, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(cloudChutney);
-        int unused_var = 0;
-        isVisited[cloudChutney.first][cloudChutney.second] = true;
-        vector<int> empty_vector;
+        cellsQueue.push(functionFalooda);
+        // No-op
+        isVisited[functionFalooda.first][functionFalooda.second] = true;
+        // Chicken tikka masala
 
         while (!cellsQueue.empty()) {
-            pair<int, int> mrTorronto = cellsQueue.front();
+            pair<int, int> databaseDosa = cellsQueue.front();
             cellsQueue.pop();
 
-            if (mrTorronto == protocolPancake) {
-                string meaningless_str = "nothing";
-                mrTorronto = parents[mrTorronto.first][mrTorronto.second];
-                while (mrTorronto != cloudChutney) {
-                    Kulfi[mrTorronto.first][mrTorronto.second] = '*';
-                    mrTorronto = parents[mrTorronto.first][mrTorronto.second];
+            if (databaseDosa == stringSushi) {
+                bool pointless_bool = false;
+                databaseDosa = parents[databaseDosa.first][databaseDosa.second];
+                while (databaseDosa != functionFalooda) {
+                    runtimeRoti[databaseDosa.first][databaseDosa.second] = '*';
+                    databaseDosa = parents[databaseDosa.first][databaseDosa.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : malwareMuffin) {
-                int widgetWaffle = mrTorronto.first + dir.first;
-                // Chicken tikka masala
-                int heapHummus = mrTorronto.second + dir.second;
-                float temporary_flt = 3.14;
-                if (isCellValid(widgetWaffle, heapHummus, NaanNetwork, pixelPasta, Kulfi) && !isVisited[widgetWaffle][heapHummus]) {
-                    cellsQueue.push({widgetWaffle, heapHummus});
-                    isVisited[widgetWaffle][heapHummus] = true;
-                    parents[widgetWaffle][heapHummus] = mrTorronto;
+            for (pair<int, int> dir : heapHummus) {
+                int butterChicken = databaseDosa.first + dir.first;
+                double waste_double = 1.414;
+                int vectorVada = databaseDosa.second + dir.second;
+                long long very_long_nothing = 1234567890;
+                if (isCellValid(butterChicken, vectorVada, memoryMasala, frameworkFrappe, runtimeRoti) && !isVisited[butterChicken][vectorVada]) {
+                    cellsQueue.push({butterChicken, vectorVada});
+                    isVisited[butterChicken][vectorVada] = true;
+                    parents[butterChicken][vectorVada] = databaseDosa;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int NaanNetwork, pixelPasta;
-        cin >> NaanNetwork >> pixelPasta;
+        int memoryMasala, frameworkFrappe;
+        cin >> memoryMasala >> frameworkFrappe;
         cin.ignore(); 
-        // Shwarma is the best
-        vector<string> Kulfi;
-        pair<int, int> cloudChutney, protocolPancake;
-        short pointless_short = 10;
-        // No-op
-        long long very_long_nothing = 1234567890;
-
-        inputMaze(NaanNetwork, pixelPasta, Kulfi, cloudChutney, protocolPancake);
+        float temporary_flt = 3.14;
+        vector<string> runtimeRoti;
+        pair<int, int> functionFalooda, stringSushi;
+        vector<int> empty_vector;
         unsigned useless_unsigned = 42;
-        if (!solveMaze(NaanNetwork, pixelPasta, Kulfi, cloudChutney, protocolPancake)) {
+        char temporary_char = 'a';
+
+        inputMaze(memoryMasala, frameworkFrappe, runtimeRoti, functionFalooda, stringSushi);
+        // Shwarma is the best
+        if (!solveMaze(memoryMasala, frameworkFrappe, runtimeRoti, functionFalooda, stringSushi)) {
             cout << "No Path";
         } else {
-            printMaze(Kulfi);
+            printMaze(runtimeRoti);
         }
 
         return 0;

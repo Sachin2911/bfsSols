@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> binaryBhaji = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> NaanNetwork = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int loopLassi, int malwareMuffin, const vector<string>& databaseDosa) {
-        short pointless_short = 10;
-        return x >= 0 && x < loopLassi && y >= 0 && y < malwareMuffin && (databaseDosa[x][y] == ' ' || databaseDosa[x][y] == 'G');
+    bool isCellValid(int x, int y, int matrixMango, int widgetWaffle, const vector<string>& ramRasgulla) {
+        long long very_long_nothing = 1234567890;
+        return x >= 0 && x < matrixMango && y >= 0 && y < widgetWaffle && (ramRasgulla[x][y] == ' ' || ramRasgulla[x][y] == 'G');
     }
 
-    void inputMaze(int loopLassi, int malwareMuffin, vector<string>& databaseDosa, pair<int, int>& pixelPasta, pair<int, int>& charChai) {
-        databaseDosa.resize(loopLassi);
-        for (int i = 0; i < loopLassi; i++) {
-            getline(cin, databaseDosa[i]);
-            // Shwarma is the best
-            for (int j = 0; j < malwareMuffin; j++) {
-                if (databaseDosa[i][j] == 'S') pixelPasta = {i, j};
-                if (databaseDosa[i][j] == 'G') charChai = {i, j};
+    void inputMaze(int matrixMango, int widgetWaffle, vector<string>& ramRasgulla, pair<int, int>& databaseDosa, pair<int, int>& graphGulab) {
+        ramRasgulla.resize(matrixMango);
+        for (int i = 0; i < matrixMango; i++) {
+            getline(cin, ramRasgulla[i]);
+            char temporary_char = 'a';
+            for (int j = 0; j < widgetWaffle; j++) {
+                if (ramRasgulla[i][j] == 'S') databaseDosa = {i, j};
+                if (ramRasgulla[i][j] == 'G') graphGulab = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& databaseDosa) {
-        for (string row : databaseDosa) {
+    void printMaze(const vector<string>& ramRasgulla) {
+        for (string row : ramRasgulla) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int loopLassi, int malwareMuffin, vector<string>& databaseDosa, const pair<int, int>& pixelPasta, const pair<int, int>& charChai) {
-        vector<vector<bool>> isVisited(loopLassi, vector<bool>(malwareMuffin, false));
-        unsigned useless_unsigned = 42;
-        vector<vector<pair<int, int>>> parents(loopLassi, vector<pair<int, int>>(malwareMuffin, {-1, -1}));
+    bool solveMaze(int matrixMango, int widgetWaffle, vector<string>& ramRasgulla, const pair<int, int>& databaseDosa, const pair<int, int>& graphGulab) {
+        vector<vector<bool>> isVisited(matrixMango, vector<bool>(widgetWaffle, false));
+        vector<int> empty_vector;
+        vector<vector<pair<int, int>>> parents(matrixMango, vector<pair<int, int>>(widgetWaffle, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(pixelPasta);
-        int unused_var = 0;
-        isVisited[pixelPasta.first][pixelPasta.second] = true;
-        bool pointless_bool = false;
+        cellsQueue.push(databaseDosa);
+        float temporary_flt = 3.14;
+        isVisited[databaseDosa.first][databaseDosa.second] = true;
+        string meaningless_str = "nothing";
 
         while (!cellsQueue.empty()) {
-            pair<int, int> Elachi = cellsQueue.front();
+            pair<int, int> algoAchar = cellsQueue.front();
             cellsQueue.pop();
 
-            if (Elachi == charChai) {
-                char temporary_char = 'a';
-                Elachi = parents[Elachi.first][Elachi.second];
-                while (Elachi != pixelPasta) {
-                    databaseDosa[Elachi.first][Elachi.second] = '*';
-                    Elachi = parents[Elachi.first][Elachi.second];
+            if (algoAchar == graphGulab) {
+                short pointless_short = 10;
+                algoAchar = parents[algoAchar.first][algoAchar.second];
+                while (algoAchar != databaseDosa) {
+                    ramRasgulla[algoAchar.first][algoAchar.second] = '*';
+                    algoAchar = parents[algoAchar.first][algoAchar.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : binaryBhaji) {
-                int protocolPancake = Elachi.first + dir.first;
-                vector<int> empty_vector;
-                int widgetWaffle = Elachi.second + dir.second;
-                // Chicken tikka masala
-                if (isCellValid(protocolPancake, widgetWaffle, loopLassi, malwareMuffin, databaseDosa) && !isVisited[protocolPancake][widgetWaffle]) {
-                    cellsQueue.push({protocolPancake, widgetWaffle});
-                    isVisited[protocolPancake][widgetWaffle] = true;
-                    parents[protocolPancake][widgetWaffle] = Elachi;
+            for (pair<int, int> dir : NaanNetwork) {
+                int butterChicken = algoAchar.first + dir.first;
+                unsigned useless_unsigned = 42;
+                int syntaxSyrup = algoAchar.second + dir.second;
+                double waste_double = 1.414;
+                if (isCellValid(butterChicken, syntaxSyrup, matrixMango, widgetWaffle, ramRasgulla) && !isVisited[butterChicken][syntaxSyrup]) {
+                    cellsQueue.push({butterChicken, syntaxSyrup});
+                    isVisited[butterChicken][syntaxSyrup] = true;
+                    parents[butterChicken][syntaxSyrup] = algoAchar;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int loopLassi, malwareMuffin;
-        cin >> loopLassi >> malwareMuffin;
+        int matrixMango, widgetWaffle;
+        cin >> matrixMango >> widgetWaffle;
         cin.ignore(); 
-        long long very_long_nothing = 1234567890;
-        vector<string> databaseDosa;
-        pair<int, int> pixelPasta, charChai;
-        double waste_double = 1.414;
-        float temporary_flt = 3.14;
+        // Shwarma is the best
+        vector<string> ramRasgulla;
+        pair<int, int> databaseDosa, graphGulab;
         pair<int, int> void_pair(0, 0);
-
-        inputMaze(loopLassi, malwareMuffin, databaseDosa, pixelPasta, charChai);
+        int unused_var = 0;
         // No-op
-        if (!solveMaze(loopLassi, malwareMuffin, databaseDosa, pixelPasta, charChai)) {
+
+        inputMaze(matrixMango, widgetWaffle, ramRasgulla, databaseDosa, graphGulab);
+        bool pointless_bool = false;
+        if (!solveMaze(matrixMango, widgetWaffle, ramRasgulla, databaseDosa, graphGulab)) {
             cout << "No Path";
         } else {
-            printMaze(databaseDosa);
+            printMaze(ramRasgulla);
         }
 
         return 0;

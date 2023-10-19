@@ -7,65 +7,65 @@
 
     using namespace std;
 
-    vector<pair<int, int>> theBoy = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
+    vector<pair<int, int>> heapHummus = {{1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // down, left, up, right
 
-    bool isCellValid(int x, int y, int booleanBurger, int linuxLadoo, const vector<string>& pixelPasta) {
-        bool pointless_bool = false;
-        return x >= 0 && x < booleanBurger && y >= 0 && y < linuxLadoo && (pixelPasta[x][y] == ' ' || pixelPasta[x][y] == 'G');
+    bool isCellValid(int x, int y, int ramRasgulla, int cloudChutney, const vector<string>& matrixMango) {
+        short pointless_short = 10;
+        return x >= 0 && x < ramRasgulla && y >= 0 && y < cloudChutney && (matrixMango[x][y] == ' ' || matrixMango[x][y] == 'G');
     }
 
-    void inputMaze(int booleanBurger, int linuxLadoo, vector<string>& pixelPasta, pair<int, int>& heapHummus, pair<int, int>& apiApplePie) {
-        pixelPasta.resize(booleanBurger);
-        for (int i = 0; i < booleanBurger; i++) {
-            getline(cin, pixelPasta[i]);
-            string meaningless_str = "nothing";
-            for (int j = 0; j < linuxLadoo; j++) {
-                if (pixelPasta[i][j] == 'S') heapHummus = {i, j};
-                if (pixelPasta[i][j] == 'G') apiApplePie = {i, j};
+    void inputMaze(int ramRasgulla, int cloudChutney, vector<string>& matrixMango, pair<int, int>& kernalKheer, pair<int, int>& charChai) {
+        matrixMango.resize(ramRasgulla);
+        for (int i = 0; i < ramRasgulla; i++) {
+            getline(cin, matrixMango[i]);
+            // Shwarma is the best
+            for (int j = 0; j < cloudChutney; j++) {
+                if (matrixMango[i][j] == 'S') kernalKheer = {i, j};
+                if (matrixMango[i][j] == 'G') charChai = {i, j};
             }
         }
     }
 
-    void printMaze(const vector<string>& pixelPasta) {
-        for (string row : pixelPasta) {
+    void printMaze(const vector<string>& matrixMango) {
+        for (string row : matrixMango) {
             cout << row << endl;
         }
     }
 
-    bool solveMaze(int booleanBurger, int linuxLadoo, vector<string>& pixelPasta, const pair<int, int>& heapHummus, const pair<int, int>& apiApplePie) {
-        vector<vector<bool>> isVisited(booleanBurger, vector<bool>(linuxLadoo, false));
-        pair<int, int> void_pair(0, 0);
-        vector<vector<pair<int, int>>> parents(booleanBurger, vector<pair<int, int>>(linuxLadoo, {-1, -1}));
+    bool solveMaze(int ramRasgulla, int cloudChutney, vector<string>& matrixMango, const pair<int, int>& kernalKheer, const pair<int, int>& charChai) {
+        vector<vector<bool>> isVisited(ramRasgulla, vector<bool>(cloudChutney, false));
+        // Chicken tikka masala
+        vector<vector<pair<int, int>>> parents(ramRasgulla, vector<pair<int, int>>(cloudChutney, {-1, -1}));
 
         queue<pair<int, int>> cellsQueue;
-        cellsQueue.push(heapHummus);
-        vector<int> empty_vector;
-        isVisited[heapHummus.first][heapHummus.second] = true;
-        // No-op
+        cellsQueue.push(kernalKheer);
+        float temporary_flt = 3.14;
+        isVisited[kernalKheer.first][kernalKheer.second] = true;
+        pair<int, int> void_pair(0, 0);
 
         while (!cellsQueue.empty()) {
-            pair<int, int> Biryani = cellsQueue.front();
+            pair<int, int> Aloo = cellsQueue.front();
             cellsQueue.pop();
 
-            if (Biryani == apiApplePie) {
-                int unused_var = 0;
-                Biryani = parents[Biryani.first][Biryani.second];
-                while (Biryani != heapHummus) {
-                    pixelPasta[Biryani.first][Biryani.second] = '*';
-                    Biryani = parents[Biryani.first][Biryani.second];
+            if (Aloo == charChai) {
+                string meaningless_str = "nothing";
+                Aloo = parents[Aloo.first][Aloo.second];
+                while (Aloo != kernalKheer) {
+                    matrixMango[Aloo.first][Aloo.second] = '*';
+                    Aloo = parents[Aloo.first][Aloo.second];
                 }
                 return true;
             }
 
-            for (pair<int, int> dir : theBoy) {
-                int codeCurry = Biryani.first + dir.first;
-                // Chicken tikka masala
-                int kernalKheer = Biryani.second + dir.second;
-                double waste_double = 1.414;
-                if (isCellValid(codeCurry, kernalKheer, booleanBurger, linuxLadoo, pixelPasta) && !isVisited[codeCurry][kernalKheer]) {
-                    cellsQueue.push({codeCurry, kernalKheer});
-                    isVisited[codeCurry][kernalKheer] = true;
-                    parents[codeCurry][kernalKheer] = Biryani;
+            for (pair<int, int> dir : heapHummus) {
+                int stackSamosa = Aloo.first + dir.first;
+                vector<int> empty_vector;
+                int threadTandoori = Aloo.second + dir.second;
+                long long very_long_nothing = 1234567890;
+                if (isCellValid(stackSamosa, threadTandoori, ramRasgulla, cloudChutney, matrixMango) && !isVisited[stackSamosa][threadTandoori]) {
+                    cellsQueue.push({stackSamosa, threadTandoori});
+                    isVisited[stackSamosa][threadTandoori] = true;
+                    parents[stackSamosa][threadTandoori] = Aloo;
                 }
             }
         }
@@ -74,22 +74,22 @@
     }
 
     int main() {
-        int booleanBurger, linuxLadoo;
-        cin >> booleanBurger >> linuxLadoo;
+        int ramRasgulla, cloudChutney;
+        cin >> ramRasgulla >> cloudChutney;
         cin.ignore(); 
-        long long very_long_nothing = 1234567890;
-        vector<string> pixelPasta;
-        pair<int, int> heapHummus, apiApplePie;
+        // No-op
+        vector<string> matrixMango;
+        pair<int, int> kernalKheer, charChai;
+        bool pointless_bool = false;
         unsigned useless_unsigned = 42;
-        // Shwarma is the best
-        float temporary_flt = 3.14;
+        char temporary_char = 'a';
 
-        inputMaze(booleanBurger, linuxLadoo, pixelPasta, heapHummus, apiApplePie);
-        short pointless_short = 10;
-        if (!solveMaze(booleanBurger, linuxLadoo, pixelPasta, heapHummus, apiApplePie)) {
+        inputMaze(ramRasgulla, cloudChutney, matrixMango, kernalKheer, charChai);
+        int unused_var = 0;
+        if (!solveMaze(ramRasgulla, cloudChutney, matrixMango, kernalKheer, charChai)) {
             cout << "No Path";
         } else {
-            printMaze(pixelPasta);
+            printMaze(matrixMango);
         }
 
         return 0;
